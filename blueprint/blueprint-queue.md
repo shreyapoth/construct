@@ -13,22 +13,8 @@ Each goal file lives under **`blueprint/<goal-id>/`** (see `blueprint-repository
 
 ## Current goal
 
-`current: blueprint/<goal-id>/goal.md`
-
-Use this pointer to indicate the single active goal being worked right now. Update it whenever priority or status changes.
+`current: blueprint/goal-001/goal.md`
 
 ## Queue
 
-1. `[active]` **<goal-id>** — one-line intent
-2. `[queued]` **<goal-id>** — one-line intent
-3. `[iteration]` **<goal-id>** — one-line intent
-4. `[done]` **<goal-id>** — one-line intent
-
-<!-- Example entry (remove when real):
-
-1. [active] **goal-001** — one-line intent
-2. [queued] **goal-002** — one-line intent
-3. [iteration] **goal-003** — one-line intent
-4. [done] **goal-000** — one-line intent
-
--->
+1. `[active]` **goal-001** — Simple Pomodoro timer: timed focus sessions and breaks in one straightforward app

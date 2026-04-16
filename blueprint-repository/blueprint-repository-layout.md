@@ -6,7 +6,7 @@ Subgoals are **one level deep** only: `blueprint/<parent-id>/subgoals/<child-id>
 blueprint/
   blueprint-queue.md
 
-  goal-001/
+  pomodoro-timer-001/
     goal.md
     guidelines.md
     plan.md
@@ -14,7 +14,7 @@ blueprint/
     decisions.md
 
     subgoals/
-      goal-001a/
+      focus-mode-ui-001a/
         goal.md
         guidelines.md
         plan.md

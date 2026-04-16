@@ -24,6 +24,7 @@ Requirements here do not need to be a full specification, but they must be clear
 - When the work **might** be **multiple independent outcomes**, do **not** impose a final split by default. Instead:
   - Offer a **proposed grouping** as a suggestion (e.g. “We could split this into … because …”) and ask whether that structure works.
   - **The user decides** the shape of the split: they may merge proposed pieces, separate them further, rename goals, reorder priority, or keep a **single** goal. Treat your proposal as editable, not canonical.
+  - Apply the global goal naming convention from `.construct/instructions/construct-instructions.md` (`<short-name>-<id>`; descriptive kebab-case + short unique suffix).
   - If a goal is decomposed, the original goal becomes the **parent goal** and remains as the umbrella objective. Do **not** overwrite or discard the parent goal.
   - Store child units under **`blueprint/<parent-id>/subgoals/<child-id>/`** so decomposition is explicit in the filesystem. **Do not** nest subgoals (no `subgoals/` under a subgoal); if more splits are needed, add **another subgoal under the parent** next to the existing children.
   - Each subgoal is an independent unit and must go through **Phase 0 (goal)** before continuing to later phases.
