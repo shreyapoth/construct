@@ -19,7 +19,7 @@ The goal does NOT need to be fully detailed or exhaustive. It should provide eno
 - Prefer a single concise statement (one sentence recommended, but not strictly required)
 - Do NOT include implementation details (e.g., specific technologies, architectures)
 - Avoid bundling unrelated outcomes into one goal
-- High-level goals are acceptable if they describe a cohesive outcome
+- The goal may represent a complex system, as long as it describes a cohesive outcome
 - **Do not** move on until the user **explicitly approves** this phase: briefly recap the goal, then ask if they are ready to continue (they may revise first)
 
 ---

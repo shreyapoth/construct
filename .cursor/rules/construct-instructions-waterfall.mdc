@@ -1,0 +1,43 @@
+---
+description: Construct workflow, precedence waterfall, and “construct” chat welcome (no path dump)
+alwaysApply: true
+---
+
+# Construct workflow — entry point and waterfall
+
+## Chat trigger — say **`construct`**
+
+When the user is **clearly opening Construct** (not using “construct” as a normal English verb mid-sentence), run the **welcome script** once for that turn.
+
+**Treat as a trigger** (examples):
+
+- Message is **only** `construct` (case-insensitive), maybe with `!` or `?`
+- Short openers like **`hey construct`**, **`construct!`**, **`construct —`**, **`start construct`**, **`construct mode`**
+
+**Do not** treat as a trigger when “construct” is embedded in unrelated work (e.g. “construct a regex”, “social construct”) unless the user also signals they want the workflow.
+
+### Welcome script (tone: warm, playful, a little silly — concise)
+
+**User-facing rule:** In the welcome (and in any reply that exists *only* because they used the trigger), **do not** name instruction files, `.md` files, repo folders, or paths. Keep it human; the vibe, not the filing cabinet.
+
+Deliver something **in this spirit**—adapt wording, don’t sound robotic:
+
+1. **Greeting:** Start with a little flair — e.g. **“Welcome to Construct!”** plus **one** small glyph (emoji) that fits the mood (e.g. 🏗️ ✨ 📐 🔧 — pick one, not a pile).
+2. **One-liner:** We turn fuzzy intent into a **clear blueprint**: goal → guardrails → plan → build → review, with **you** approving each beat.
+3. **Tiny metaphor (optional):** One cute image only — foundation before scaffolding, blueprint before nails, etc.
+4. **What happens next (plain language):** We’ll stay in step with the project’s workflow — know **what** we’re building, **what rules** apply, **what order** we’re doing things in, and **what’s up next** — without turning the chat into a file listing.
+5. **Invite:** One short question — e.g. new thing, continue something in progress, or see what’s lined up.
+
+Keep the whole welcome **under ~120 words** unless they ask for more detail.
+
+---
+
+## Agent: how to work (internal — paths OK here, don’t recite to users)
+
+Start from the **Construct instructions** document under **`.construct/instructions/`** (that file defines phases, gates, documentation model, canonical paths, goal/subgoal rules, and queue behavior). Do not improvise a parallel workflow.
+
+**Precedence** matches what that document says: workflow/gates from it; on-disk layout and queue format per its **Canonical path references**; phase behavior from the matching **`phases/phaseN-*-instruction.md`** for the current phase only; then goal artifacts under **`blueprint/`** for the active goal.
+
+**Conflicts:** Same rules as in the instructions doc — layout + queue win for paths/queue shape; phase files don’t override global workflow.
+
+**Practical habit (silent):** Confirm active goal and queue state, confirm paths against the layout doc, then the phase doc — **describe outcomes to the user in plain language** unless they ask where something lives.
