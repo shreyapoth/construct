@@ -22,8 +22,8 @@ Evaluate correctness against:
 - If major issues are found, return to **Phase 1 or Phase 2**
 - Keep output **minimal and precise**
 - **Final status is owned by Phase 4**. After review is approved:
-  - If `Final Status = done`, update **`blueprint/blueprint-queue.md`** to mark the goal as **`[done]`**
-  - If `Final Status = needs-iteration`, update **`blueprint/blueprint-queue.md`** to mark the goal as **`[iteration]`**
+  - If `Final Status = done`, update **`blueprint/blueprint-queue.md`** to mark the goal as **`[done]`**, and set the **first line** of this goal’s **`goal.md`** to **`[completed]`**
+  - If `Final Status = needs-iteration`, update **`blueprint/blueprint-queue.md`** to mark the goal as **`[iteration]`** (keep **`goal.md`** line 1 as **`[active]`** until the goal is fully done)
   - Update the `current:` pointer to the selected next active goal (or placeholder if pausing)
 - After status update, ask the user:
   - **Do you want to move on to the next goal in the queue?**

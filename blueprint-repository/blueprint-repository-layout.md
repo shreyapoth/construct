@@ -2,6 +2,8 @@
 
 Subgoals are **one level deep** only: `blueprint/<parent-id>/subgoals/<child-id>/`. A subgoal folder must **not** contain a `subgoals/` directory. Further splits become additional siblings under the same parent.
 
+Each **`goal.md`** starts with a single-line status: `[pending]`, `[active]`, or `[completed]` (see `.construct/instructions/construct-instructions.md`).
+
 ```text
 blueprint/
   blueprint-queue.md

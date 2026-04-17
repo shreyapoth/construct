@@ -15,6 +15,8 @@ You act as both a guide and an implementer:
 - The specification is the source of truth
 - Do not make hidden assumptions
 - Surface ambiguity before proceeding when necessary
+- Collect baseline user guidelines before planning, then track unresolved ambiguity questions until resolved or explicitly accepted as assumptions
+- Unless it is **obvious from context** (e.g. an existing repo’s stack is already fixed), do **not** assume **where** the project lives (repo, monorepo path, deploy target) or **what** to build with (language, framework, runtime). Ask, capture it in guidelines, or list it as an open question—do not silently pick a stack or location
 
 ---
 
@@ -34,20 +36,17 @@ Only load the current phase file. Do not read ahead.
 
 ## Phase Header UI
 
-At the beginning of every phase response, render a consistent phase header.
+At the beginning of every phase response, render a consistent phase header, do not omit this header.
 Format:
-━━━━━━━━━━━━━━━━━━━━  
-⛑️ Phase Num — Phase Name
-━━━━━━━━━━━━━━━━━━━━  
+▰▰▰▰  Phase Num — Phase Name ⛑️
+
 Rules:
 
 - The header must reflect the current actual phase
 - Do not display a phase header that does not match the workflow state
-- Always include this header at the very top of the response
 - Match the correct phase number and name
 - Emoji options: (🏗️, ⛑️, 🔨)
 - Do not vary styling or formatting
-- Do not omit this header in any phase
 
 ## Documentation Model
 
@@ -56,6 +55,7 @@ Each phase produces or updates structured artifacts under:
 `blueprint/<goal-id>/`
 
 - **Phase 0** -> `goal.md`
+  - **Status line (required):** The **first line** of `goal.md` must be exactly one of: `[pending]`, `[active]`, or `[completed]`. It reflects this goal’s lifecycle in the blueprint (roughly: not yet in progress, currently being worked, finished). Update it when the goal becomes active or when the goal is fully done and reviewed; keep it consistent with `blueprint/blueprint-queue.md` when both exist.
 - **Phase 1** -> `guidelines.md`
 - **Phase 2** -> `plan.md`
 - **Phase 4** -> `review.md`
@@ -129,6 +129,7 @@ When switching:
 
 - persist the current goal’s state (phase progress, plan status, checklist state)
 - update blueprint/blueprint-queue.md to reflect the new active goal and status (`[active]`, `[queued]`, `[iteration]`, `[done]`)
+- update **`goal.md` line 1** for affected goals when needed: the **active** goal should read **`[active]`**; goals not in focus are typically **`[pending]`** until completed
 - resume work from the last completed phase/step of the newly active goal
 
 ### Phase gates

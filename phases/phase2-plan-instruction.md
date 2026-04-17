@@ -1,54 +1,56 @@
 ### Phase Overview
 
-**Purpose:** After **guidelines are finalized** for a goal unit, produce an **implementation plan**: ordered steps to achieve that goal (or subgoal), plus a **checklist** you can execute and tick off.
+**Purpose:** Produce an implementation plan for the goal unit: ordered steps and a checklist for execution.
 
-**Key Principle:** Plan the work **per goal / subgoal folder** before building, and **do not start execution (Phase 3)** until the user **approves** the plan for that unit.
-
-This phase runs **once per** `blueprint/<goal-id>/` (and per `blueprint/.../subgoals/<child-id>/` when those exist). Each unit needs its own plan derived from **that folder’s** `goal.md` and **`guidelines.md`** (approved in Phases 0 and 1).
+**Key Principle:** Plan per goal/subgoal before building. Do not execute until approved.
 
 This phase establishes:
 
-- **Execution approach** — strategy and sequencing for this unit only
-- **Work breakdown** — concrete steps with dependencies
-- **Validation** — how you’ll know each major step is done
-- **Checklist** — at the **bottom** of **`plan.md`**, a **numbered** list: `1. [ ]`, `2. [ ]`, `3. [ ]`, … — each line is **one step** in order (see [Output](#output))
+- **Execution approach**
+- **Work breakdown**
+- **Validation strategy**
+- **Checklist** (numbered, one step per item)
 
 ---
 
 ### Rules
 
-- **Enter Phase 2 only when** Phase 1 **guidelines** for this goal unit are **finalized** (or explicitly approved to proceed with stated caveats).
-- Build the plan from **this folder’s** `goal.md` and `guidelines.md`—do not silently merge unrelated goals.
-- For **subgoals**, plan **inside** each subgoal directory (`blueprint/.../subgoals/<child-id>/`); do not fold subgoal work into the parent plan unless the user wants a single rollup document.
-- Translate guidelines into **ordered, actionable steps**; avoid vague items like “implement feature.”
-- Include **dependencies** where they affect order or correctness.
-- If new risks or assumptions are discovered during planning:
-  - If they **materially affect problem definition**, return to **Phase 1** and update `guidelines.md` before continuing.
-  - Otherwise, note them **briefly** in plan context, but keep the **authoritative** versions in `guidelines.md`.
-- End **`plan.md`** with a **Checklist** section: **numbered checkbox** lines only — `1. [ ]`, `2. [ ]`, … (not bullet `- [ ]`). Each number is one execution step; completed items become `1. [x]`, `2. [x]`, etc. during Phase 3.
-- If the plan changes materially, summarize what changed and why before continuing.
+- Enter Phase 2 only after guidelines for this goal unit are finalized or explicitly approved  
+- Build the plan strictly from this unit’s goal and guidelines  
+
+- Do not assume project location or technology stack  
+- Only include them if defined in guidelines, confirmed by the user, or clearly implied by the existing codebase  
+- Otherwise, return to Phase 1 or mark as an explicit assumption before execution  
+
+- Plan within the current goal or subgoal directory; do not merge unrelated scopes  
+
+- Translate guidelines into ordered, actionable steps (avoid vague steps like “implement feature”)  
+- Include dependencies where they affect order or correctness  
+
+- If new assumptions or risks affect problem definition, return to Phase 1  
+- Otherwise, note them briefly, but keep authoritative decisions in guidelines.md  
+
+- End plan.md with a numbered Checklist (`1. [ ]`, `2. [ ]`, ...)  
+- Each checklist item must correspond to exactly one step  
+
+- If the plan changes materially, summarize what changed and why  
 
 ---
 
 ### Plan approval (Phase gate)
 
-Treat **`plan.md`** as a draft until the user says otherwise.
+- Treat plan.md as a draft until explicitly approved  
+- Do not begin Phase 3 until the user confirms the plan  
 
-- **Do not** begin **Phase 3 (Execute)** for this goal unit—and do not treat the checklist as the live execution contract—until the user **explicitly approves** the plan (e.g. they confirm the steps and checklist match what they want).
-- **Before asking for approval**, give a **short recap**: what’s in the approach, the ordered steps, and the checklist (or point to the files under `blueprint/.../`).
-- If the user wants **changes**, stay in Phase 2: revise **`plan.md`** until they are satisfied. Re-ask for approval after non-trivial edits.
-- **Do not** assume silence, partial agreement, or “keep going” on other topics counts as plan approval.
-- **Exception:** if the user **clearly instructs** you to proceed to execution or to skip the approval step, follow that instruction.
+- Before asking for approval:
+  - Provide a short recap of the approach, steps, and checklist  
 
----
+- If changes are requested:
+  - Revise plan.md and remain in Phase 2  
 
-### Output
+- Do not assume silence or partial agreement is approval  
 
-Write **`plan.md`** in the **same directory** as the goal unit’s `goal.md` / `guidelines.md`.
-
-| File | Contents |
-|------|----------|
-| `plan.md` | **Approach**, **Steps** (ordered plan text), then a **Checklist** section **at the bottom** using **`1. [ ]` / `2. [ ]` / …** so each line is one step. No separate `checklist.md`. No risks/assumptions/open-questions sections in `plan.md`. |
+- Exception: proceed if the user explicitly instructs to skip approval  
 
 ---
 
@@ -70,6 +72,6 @@ Steps:
 
 1. [ ]
 2. [ ]
-3. [ ]
+3.
 
-*(Each checklist line is one step; numbering must match execution order for Phase 3.)*
+*(Each checklist line must match one step in order.)*

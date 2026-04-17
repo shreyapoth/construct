@@ -13,8 +13,9 @@ Each goal file lives under **`blueprint/<goal-id>/`** (see `blueprint-repository
 
 ## Current goal
 
-`current: blueprint/goal-001/goal.md`
+`current: blueprint/pomodoro-timer-001/goal.md`
 
 ## Queue
 
-1. `[active]` **goal-001** — Simple Pomodoro timer: timed focus sessions and breaks in one straightforward app
+1. `[queued]` **daily-wordle-002** — Shared daily Wordle website with pastel UI, emoji-grid sharing, and once-per-device daily play
+2. `[active]` **pomodoro-timer-001** — Simple Pomodoro timer: timed focus sessions and breaks in one straightforward app
