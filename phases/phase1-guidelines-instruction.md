@@ -15,8 +15,6 @@ Requirements do not need to be a full specification, but must be clear enough fo
 
 ---
 
-### Rules
-
 #### Questioning Rules
 
 - Start Phase 1 by asking the user for initial guidelines using a concise scaffold:
@@ -26,15 +24,28 @@ Requirements do not need to be a full specification, but must be clear enough fo
     - constraints (tech, policy, performance, security)
     - out-of-scope boundaries / non-goals
 
-- After the user provides input:
-  - Ask **3–5 specific, actionable follow-up questions** (not open-ended)
-  - Provide options when helpful, but allow custom input
-  - Track unanswered items explicitly
+- Ask clarifying questions about the goal
+- Gather specific technical requirements 
+- Understand constraints and preferences 
+- Probe for details about edge cases
+- Understand user's preferred approach
 
-- Non-critical questions may remain open and be tracked explicitly
+Examples of clarifying questions:
+  - Should this support [specific scenario]?
+  - Do you want [approach A] or [approach B]?
+  - What should happen when [edge case]?
+  - Should I use [technology X] for this?
+  - How should errors be handled in [specific situation]?
+  - Should this integrate with [existing system/feature]?
+  - What’s the expected behavior for [boundary condition]?
+  - Are there any performance requirements?
+  - Should this be configurable? If so, how?
+
+- If any planning-critical question is still open:
+  - Do **not** proceed to Phase 2
+  - Ask follow-up questions until resolved or explicitly accepted as an assumption
 
 - You may discuss options and tradeoffs when decisions are unclear  
-- The user makes the final decision when multiple reasonable options exist
 
 ---
 
@@ -47,7 +58,6 @@ Requirements do not need to be a full specification, but must be clear enough fo
 - Only proceed with a decision when:
   - the user has explicitly answered, or  
   - the user explicitly accepts an assumption  
-
 - Do not convert missing information into implied defaults  
 
 ---
@@ -66,22 +76,51 @@ Requirements do not need to be a full specification, but must be clear enough fo
 - Ask explicitly when they affect planning or correctness  
 
 ---
+### Goal Decomposition
 
-#### Goal Decomposition & Queue Management
+- Even if the goal is a **single cohesive product**, evaluate whether it contains multiple **distinct subsystems**
 
-- When the work **might** be **multiple independent outcomes**:
-  - Offer a proposed grouping and ask for confirmation  
-  - The user decides how goals are split  
+- A subsystem is present if:
+  - it has a separate responsibility (e.g. UI, backend, real-time sync, persistence)
+  - it can be built and tested independently
+  - it introduces its own technical concerns or architecture
+
+- If multiple subsystems are detected:
+  - propose them as **subgoals**
+  - do not keep them as flat plan steps
+
+- Cohesive product ≠ single goal for planning purposes
+
+### Example
+
+Input:
+- Build a collaborative document editor
+
+  Incorrect (flat plan):
+  1. Set up project
+  2. Implement real-time editing
+  3. Add authentication
+  4. Add cursor presence
+  5. Add version history
+  6. Build UI
+
+  Correct (subgoal decomposition):
+
+  Subgoals:
+  1. Real-time synchronization engine  
+  2. Authentication & session management  
+  3. Presence system  
+  4. Versioning & document history  
+  5. Editor UI  
+
+Each subgoal is then planned independently in Phase 2.
+
+---
 
 - If a goal is decomposed:
-  - The original goal becomes the **parent goal** and remains unchanged  
-  - Store child units under `blueprint/<parent-id>/subgoals/<child-id>/`  
+  - The original goal becomes the **parent goal**
+  - Store child units under `blueprint/<parent-id>/subgoals/<child-id>/`
   - Do not nest subgoals  
-
-- Each goal or subgoal is an independent unit and must begin from Phase 0  
-
-- Subgoals inherit only resolved context  
-- Do not carry unresolved questions into subgoals without restating them  
 
 - Only after the user explicitly confirms a split:
   - Update `blueprint/blueprint-queue.md`  
@@ -89,6 +128,20 @@ Requirements do not need to be a full specification, but must be clear enough fo
   - Track the current active goal  
 
 ---
+
+### Subgoal Execution Model
+
+- Each subgoal must start from phase 0 again 
+- Subgoals do NOT go through full Phase 1
+
+- Subgoal Phase 1 is **refinement only**:
+  - inherit parent requirements, constraints, and decisions
+  - do not re-ask previously resolved questions
+  - only ask subgoal-specific questions if needed
+
+- If no new information is needed:
+  - skip questioning entirely
+  - proceed directly to Phase 2
 
 - **Do not move on until the user explicitly approves this phase**  
   - Provide a brief recap of requirements, constraints, scope, and goal structure  

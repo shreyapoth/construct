@@ -38,7 +38,7 @@ Only load the current phase file. Do not read ahead.
 
 At the beginning of every phase response, render a consistent phase header, do not omit this header.
 Format:
-▰▰▰▰  Phase Num — Phase Name ⛑️
+▰▰▰▰  Phase Num ▰▰▰ Phase Name ⛑️
 
 Rules:
 
@@ -106,16 +106,10 @@ Each goal (including subgoals) is an independent unit of work.
 
 **Subgoal depth:** Subgoals do **not** have their own subgoals—no nesting under `blueprint/.../subgoals/<child-id>/`. If work must split further, add **another subgoal next to** the existing ones under the **parent** goal (`blueprint/<parent-id>/subgoals/<new-id>/`), not under a subgoal.
 
-Subgoals must restart from Phase 0, but may inherit relevant context from the parent goal.
+Subgoals inherit resolved context from the parent goal.
 
-Inherited context (requirements, constraints, assumptions) must be:
-
-- explicitly restated or referenced in the subgoal’s guidelines.md
-- reviewed and confirmed as applicable to the subgoal
-
-Do not assume all parent context applies automatically—only carry forward what is relevant.
-
-Parent context is a source of truth, not a default.
+- Read from parent `guidelines.md` and `decisions.md`
+- Do not duplicate or restate context locally
 
 ## Goal Execution and Switching
 

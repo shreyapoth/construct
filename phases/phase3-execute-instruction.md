@@ -9,21 +9,43 @@
 
 ---
 
-### Rules
+### Execution Rules
 
-- Follow `plan.md` as the single **source of truth** (Steps + Checklist)
-- Step number corresponds to checklist number
-    - If execution reveals the plan is wrong or incomplete, **pause**, return to **Phase 2** (or **Phase 1**) with the user, and revise the plan before continuing.
+- Follow `plan.md` as the single **source of truth** (Steps + Checklist)  
+- Step number corresponds directly to checklist number  
 
-- Execute **one step at a time**. Do **not** automatically continue to the following steps without explicit instruction.
-- Before starting a step, state the step number and wait for a user “begin” signal (e.g. “begin”, “go”, “start step N”)
-- If the user asks to **skip**, **merge**, or **reorder** steps, treat that as a **plan change**: get agreement, update **`plan.md`** (Phase 2), re-approve if needed, then continue under the new order.
-- **Do not** leave Phase 3 for **Phase 4 (Review)** until the user **explicitly approves** wrapping execution for this unit (brief recap vs **`plan.md`**, then ask if they are ready to review).
+- If execution reveals the plan is incorrect or incomplete:
+  - **Pause immediately**
+  - Return to **Phase 2** (or Phase 1 if needed)
+  - Revise and re-approve the plan before continuing  
 
-- **After each step:** **Check off the plan** — set the matching checklist line in **`plan.md`** from `N. [ ]` to **`N. [x]`** when that step is done. That update **is** the Phase 3 output; do not require a separate report unless the user asks.
-- **Dependencies:** If a step truly depends on a prior step, do not start it until the prior step is checked off **and** the user begins this one—unless the plan orders them differently with user approval.
+- Execute **one step at a time**  
+- Before starting a step:
+  - State the step number  
+  - Wait for an explicit user signal (e.g. “begin”, “go”, “start step N”)  
 
-- Queue closure is finalized in **Phase 4 (Review)** based on `Final Status`; Phase 3 should prepare for review but not finalize `[done]`/`[iteration]` state transitions on its own.
+- Do **not** continue to the next step without explicit instruction  
+
+- After completing a step:
+  - Update the corresponding checklist item in `plan.md` (`N. [x]`)  
+  - This update is the **only required output** (no separate report unless requested)  
+
+- If the user requests to **skip, merge, or reorder** steps:
+  - Treat it as a **plan change**
+  - Return to **Phase 2**
+  - Update and re-approve `plan.md` before continuing  
+
+- Respect step dependencies implicitly:
+  - Do not execute a step until prior steps are completed  
+  - Follow the order defined in `plan.md` unless explicitly changed  
+
+- Do **not** move to Phase 4 (Review) until:
+  - All intended steps are complete **and**
+  - The user explicitly approves wrapping execution  
+
+- Phase 3 does **not** finalize goal status:
+  - Do not mark goals as `[done]` or `[iteration]`
+  - Prepare for review, but leave final status decisions to Phase 4  
 
 ---
 

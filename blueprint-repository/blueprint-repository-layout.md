@@ -18,8 +18,7 @@ blueprint/
     subgoals/
       focus-mode-ui-001a/
         goal.md
-        guidelines.md
+        guidelines.md (optional)
         plan.md
         review.md
-        decisions.md
 ```

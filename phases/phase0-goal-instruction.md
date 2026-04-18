@@ -23,6 +23,13 @@ The goal does NOT need to be fully detailed or exhaustive. It should provide eno
 - The goal may represent a complex system, as long as it describes a cohesive outcome
 - **Do not** move on until the user **explicitly approves** this phase: briefly recap the goal, then ask if they are ready to continue (they may revise first)
 
+- Focus only on:
+  - understanding the idea
+  - shaping it into a clear goal
+
+- Do not expand scope beyond goal definition
+- Do not add optional features unless the user explicitly asks
+
 ---
 
 ### Output Format
